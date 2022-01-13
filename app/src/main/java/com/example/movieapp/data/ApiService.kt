@@ -1,8 +1,6 @@
 package com.example.movieapp.data
 
-import com.example.movieapp.data.model.MovieItem
-import com.example.movieapp.data.model.MovieItemDetail
-import com.example.movieapp.data.model.WrapperResponse
+import com.example.movieapp.data.model.*
 import com.example.movieapp.utils.apikey
 import retrofit2.Call
 import retrofit2.http.GET
@@ -16,5 +14,8 @@ interface ApiService {
 
     @GET("movie/{movie_id}?api_key=$apikey&language=en-US")
     fun getMovieDetails(@Path("movie_id") movieId: Int): Call<MovieItemDetail>
+
+    @GET("movie/{movie_id}/credits?api_key=$apikey&language=en-US")
+    fun getMovieCast(@Path("movie_id") movieId: Int): Call<CastWrapperResponse>
 
 }

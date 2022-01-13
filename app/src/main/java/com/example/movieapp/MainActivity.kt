@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity(), Callback<WrapperResponse<List<MovieIte
         DataRepository.retrofitClient.getInstance()?.getPopularMovies()?.enqueue(this)
 
         linearLayoutManager = LinearLayoutManager(this)
-        recyclerView.layoutManager = linearLayoutManager
+        MovieRecyclerView.layoutManager = linearLayoutManager
     }
 
     override fun onResponse(
@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity(), Callback<WrapperResponse<List<MovieIte
         response: Response<WrapperResponse<List<MovieItem>>>
     ) {
         if (response.isSuccessful) {
-            recyclerView.apply {
+            MovieRecyclerView.apply {
                 myAdapter = RecyclerAdapter(response.body()!!.results)
                 layoutManager = linearLayoutManager
                 adapter = myAdapter
