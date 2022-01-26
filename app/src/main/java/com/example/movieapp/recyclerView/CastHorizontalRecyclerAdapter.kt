@@ -10,7 +10,8 @@ import com.example.movieapp.R
 import com.example.movieapp.data.model.MovieCast
 import com.squareup.picasso.Picasso
 
-class CastHorizontal_RecyclerAdapter(private val mList: List<MovieCast>):RecyclerView.Adapter<CastHorizontal_RecyclerAdapter.MyViewHolder>() {
+class CastHorizontalRecyclerAdapter(private val mList: List<MovieCast>) :
+    RecyclerView.Adapter<CastHorizontalRecyclerAdapter.MyViewHolder>() {
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -29,15 +30,17 @@ class CastHorizontal_RecyclerAdapter(private val mList: List<MovieCast>):Recycle
         holder.nameTextView.text = movieCast.name
         val url = "https://image.tmdb.org/t/p/w500" + movieCast.profile_path
         Picasso.get().load(url).into(holder.castProfileImageView)
+        holder.characterTextView.text = movieCast.character
     }
 
     override fun getItemCount(): Int {
         return 25
     }
 
-    class MyViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
+    class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val nameTextView: TextView = itemView.findViewById(R.id.textCastName)
         val castProfileImageView: ImageView = itemView.findViewById(R.id.castProfilePath)
+        val characterTextView: TextView = itemView.findViewById(R.id.textCastCharacter)
     }
 
 }

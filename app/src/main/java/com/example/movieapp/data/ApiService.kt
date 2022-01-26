@@ -18,4 +18,7 @@ interface ApiService {
     @GET("movie/{movie_id}/credits?api_key=$apikey&language=en-US")
     fun getMovieCast(@Path("movie_id") movieId: Int): Call<CastWrapperResponse>
 
+    @GET("movie/{movie_id}/videos?api_key=$apikey&language=en-US")
+    fun getMovieVideos(@Path("movie_id") movieId: Int): Call<WrapperResponse<List<MovieVideos>>>
+
 }
