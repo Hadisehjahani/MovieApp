@@ -21,4 +21,7 @@ interface ApiService {
     @GET("movie/{movie_id}/videos?api_key=$apikey&language=en-US")
     fun getMovieVideos(@Path("movie_id") movieId: Int): Call<WrapperResponse<List<MovieVideos>>>
 
+    @GET("movie/{movie_id}/recommendations?api_key=$apikey&language=en-US")
+    fun getMovieRecommendations(@Path("movie_id") movieId: Int): Call<WrapperResponse<List<MovieItem>>>
+
 }

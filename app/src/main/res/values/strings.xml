@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">MovieApp</string>
+    <string name="overview">Overview</string>
+    <string name="cast_amp_crew"><![CDATA[Cast & Crew]]></string>
+    <string name="videos">Videos</string>
+    <string name="information">Information</string>
+    <string name="release_date">Release Date</string>
+    <string name="language">Language</string>
+    <string name="budget">Budget</string>
+    <string name="revenue">Revenue</string>
+    <string name="production_companies">Production Companies</string>
+    <string name="recommended">Recommended</string>
 </resources>

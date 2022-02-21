@@ -8,7 +8,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/itemDetailBackdropPath"
@@ -60,7 +60,6 @@
             app:layout_constraintTop_toBottomOf="@id/textDetailTitle"
             tools:text="Genre" />
 
-
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/textDetailReleaseDate"
             android:layout_width="wrap_content"
@@ -73,15 +72,26 @@
             app:layout_constraintTop_toBottomOf="@id/textDetailGenre"
             tools:text="Release Date" />
 
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/starImage"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/star"
+            app:layout_constraintLeft_toRightOf="@id/itemDetailImage"
+            app:layout_constraintRight_toLeftOf="@id/textDetailVoteAverage"
+            app:layout_constraintTop_toBottomOf="@id/textDetailReleaseDate" />
+
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/textDetailVoteAverage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="5dp"
             android:layout_marginTop="8dp"
             android:textColor="@color/green"
             android:textSize="15sp"
-            app:layout_constraintLeft_toRightOf="@id/itemDetailImage"
+            app:layout_constraintLeft_toRightOf="@id/starImage"
             app:layout_constraintTop_toBottomOf="@id/textDetailReleaseDate"
             tools:text="Vote Average" />
 
@@ -91,7 +101,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
-            android:text="Overview"
+            android:text="@string/overview"
             android:textColor="@color/white"
             android:textSize="20sp"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -118,7 +128,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
-            android:text="Cast &amp; Crew"
+            android:text="@string/cast_amp_crew"
             android:textColor="@color/white"
             android:textSize="20sp"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -140,7 +150,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
-            android:text="Videos"
+            android:text="@string/videos"
             android:textColor="@color/white"
             android:textSize="20sp"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -157,6 +167,151 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/textVideos" />
 
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textInformation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/information"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ViewPagerDetail" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/InfoRelativeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textInformation">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/ReleaseDate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="right"
+                android:text="@string/release_date"
+                android:textColor="@color/white"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/textInfoReleaseDate"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textInfoReleaseDate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:gravity="left"
+                android:textColor="@color/gray"
+                app:layout_constraintLeft_toRightOf="@id/ReleaseDate"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="release date" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/Language"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="right"
+                android:text="@string/language"
+                android:textColor="@color/white"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/textInfoLanguage"
+                app:layout_constraintTop_toBottomOf="@id/ReleaseDate" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textInfoLanguage"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:gravity="left"
+                android:textColor="@color/gray"
+                app:layout_constraintLeft_toRightOf="@id/Language"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textInfoReleaseDate"
+                tools:text="language" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/Budget"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="right"
+                android:text="@string/budget"
+                android:textColor="@color/white"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/textInfoBudget"
+                app:layout_constraintTop_toBottomOf="@id/Language" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textInfoBudget"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:gravity="left"
+                android:textColor="@color/gray"
+                app:layout_constraintLeft_toRightOf="@id/Budget"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textInfoLanguage"
+                tools:text="budget" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/Revenue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="right"
+                android:text="@string/revenue"
+                android:textColor="@color/white"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/textInfoRevenue"
+                app:layout_constraintTop_toBottomOf="@id/Budget" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textInfoRevenue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:gravity="left"
+                android:textColor="@color/gray"
+                app:layout_constraintLeft_toRightOf="@id/Revenue"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textInfoBudget"
+                tools:text="revenue" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/ProductionCompanies"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="right"
+                android:text="@string/production_companies"
+                android:textColor="@color/white"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/textInfoProductionCompanies"
+                app:layout_constraintTop_toBottomOf="@id/Revenue" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textInfoProductionCompanies"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:gravity="left"
+                android:textColor="@color/gray"
+                app:layout_constraintLeft_toRightOf="@id/ProductionCompanies"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textInfoRevenue"
+                tools:text="production companies" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/textRecommended"
@@ -164,26 +319,22 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
-            android:text="Recommended"
+            android:text="@string/recommended"
             android:textColor="@color/white"
             android:textSize="20sp"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ViewPagerDetail" />
+            app:layout_constraintTop_toBottomOf="@id/InfoRelativeLayout" />
 
-        <!--    recycler-->
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/textSimilar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView_Recommended"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
             android:layout_marginTop="10dp"
-            android:text="Similar"
-            android:textColor="@color/white"
-            android:textSize="20sp"
+            android:orientation="horizontal"
+            android:paddingBottom="20dp"
             app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/textRecommended" />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

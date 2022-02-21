@@ -29,7 +29,9 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="5dp"
+            android:ellipsize="end"
             android:gravity="left"
+            android:maxLines="1"
             android:scrollHorizontally="false"
             android:textSize="20sp"
             app:layout_constraintLeft_toRightOf="@id/itemImage"
@@ -39,11 +41,16 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/textGenre"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="50dp"
+            android:gravity="left"
+            android:maxLines="1"
+            android:ellipsize="end"
             app:layout_constraintLeft_toRightOf="@id/itemImage"
+            app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/textTitle"
             tools:text="Genre" />
 

@@ -15,13 +15,13 @@ import com.example.movieapp.data.model.GenresEnum
 import com.example.movieapp.data.model.MovieItem
 import com.squareup.picasso.Picasso
 
-class RecyclerAdapter(private val mList: List<MovieItem>) :
-    RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
+class RecommendedRecyclerAdaptor(private val mList: List<MovieItem>) :
+    RecyclerView.Adapter<RecommendedRecyclerAdaptor.ViewHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.recyclerview_item_row, parent, false)
+            .inflate(R.layout.recommendedrecyclerview_item_row, parent, false)
         return ViewHolder(view)
     }
 
@@ -31,11 +31,9 @@ class RecyclerAdapter(private val mList: List<MovieItem>) :
         Picasso.get().load(url).into(holder.imageView)
 
         holder.titleTextView.text = movieItem.title
-        holder.releaseDateTextView.text = movieItem.release_date
-        holder.voteAverageTextView.text = movieItem.vote_average.toString()
 
         var genres: List<Int> = movieItem.genre_ids
-        var genreTopic: ArrayList<String> = ArrayList<String>()
+        var genreTopic: ArrayList<String> = ArrayList()
 
         genres.forEach { g ->
             GenresEnum.values().find { it.id == g }?.let {
@@ -44,9 +42,8 @@ class RecyclerAdapter(private val mList: List<MovieItem>) :
         }
         holder.genreTextView.text = genreTopic.joinToString(", ")
         holder.itemView.setOnClickListener {
-            val intent = Intent(it.context, DetailActivity::class.java)
-            intent.putExtra("movie-id", movieItem.id)
-            intent.putExtra("title" , movieItem.title)
+            val intent: Intent = Intent(it.context, DetailActivity::class.java)
+            intent.putExtra("key", movieItem.id)
             it.context.startActivity(intent)
             Log.d(ContentValues.TAG, "onclick: $movieItem")
         }
@@ -57,10 +54,8 @@ class RecyclerAdapter(private val mList: List<MovieItem>) :
     }
 
     class ViewHolder(ItemView: View) : RecyclerView.ViewHolder(ItemView) {
-        val imageView: ImageView = itemView.findViewById(R.id.itemImage)
-        val titleTextView: TextView = itemView.findViewById(R.id.textTitle)
-        val releaseDateTextView: TextView = itemView.findViewById(R.id.textReleaseDate)
-        val voteAverageTextView: TextView = itemView.findViewById(R.id.textVoteAverage)
-        val genreTextView: TextView = itemView.findViewById(R.id.textGenre)
+        val imageView: ImageView = itemView.findViewById(R.id.RecommendedImage)
+        val titleTextView: TextView = itemView.findViewById(R.id.textRecommendedTitle)
+        val genreTextView: TextView = itemView.findViewById(R.id.textRecommendedGenre)
     }
 }
