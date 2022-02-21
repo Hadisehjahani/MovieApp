@@ -2,7 +2,8 @@
 The Movie Database (TMDB)
 
 
-![mainActivity](../master/screenShots/mainActivity.jpeg)
+<img src="../master/screenShots/mainActivity.jpeg" width="200" height="400">
+<img src="../master/screenShots/detailActivity.jpeg" width="200" height="400">
 <img src="../master/screenShots/detailActivity2.jpeg" width="200" height="400">
-![detailActivity](../master/screenShots/detailActivity.jpeg)
+
 
